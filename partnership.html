@@ -1,129 +1,76 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mitra Telkom Food Hub - Tumbuh Bersama Kami</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gabung Jadi Mitra - Telkom Food Hub</title>
+    <!-- Menghubungkan ke satu file CSS yang sama -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Menghubungkan ke Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: {
-              sans: ['Inter', 'sans-serif'],
-            },
-            colors: {
-              'telkom-red': '#BE1E2D',
-              'dark-gray': '#2D3748',
-              'light-gray': '#E2E8F0',
-            }
-          }
-        }
-      }
-    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
 </head>
-<body class="bg-white text-dark-gray font-sans antialiased">
+<body>
 
-    <!-- Header -->
-    <header class="sticky top-0 z-50 w-full bg-white/80 backdrop-blur-sm border-b border-light-gray">
-      <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-        <h1 class="text-2xl font-extrabold text-telkom-red">
-          Telkom Food Hub
-        </h1>
-        <nav>
-          <a href="./index.html" class="text-dark-gray font-semibold hover:text-telkom-red transition-colors duration-300">
-            Kembali ke Beranda
-          </a>
-        </nav>
-      </div>
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo">Telkom Food Hub</a>
+            <nav>
+                <a href="index.html">← Kembali ke Beranda</a>
+            </nav>
+        </div>
     </header>
 
     <main>
-        <!-- Hero Section -->
-        <section class="relative h-[500px] bg-cover bg-center text-white flex items-center justify-center text-center" style="background-image: url('https://placehold.co/1200x500/333/FFF?text=Foto+Jabat+Tangan');">
-            <div class="absolute inset-0 bg-black/50"></div>
-            <div class="relative z-10 p-6">
-                <h1 class="text-4xl md:text-6xl font-extrabold" style="text-shadow: 0 2px 4px rgba(0,0,0,0.5);">
-                    Mari Tumbuh Bersama Kami.
-                </h1>
-                <p class="mt-4 text-lg md:text-xl text-gray-200 max-w-3xl mx-auto">
-                    Jangkau ribuan mahasiswa Telkom University dan tingkatkan pesanan Anda. Gabung menjadi mitra Telkom Food Hub hari ini.
-                </p>
+        <!-- Bagian Judul Halaman -->
+        <section id="partnership-hero">
+            <div class="container">
+                <h1>Keuntungan Menjadi Mitra Telkom Food Hub</h1>
+                <p>Platform komunitas yang dirancang untuk kesuksesan Anda.</p>
             </div>
         </section>
 
-        <!-- "Kenapa Bergabung?" Section -->
-        <section class="py-20 bg-gray-50">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-extrabold text-dark-gray">
-                        Keuntungan Menjadi Mitra Telkom Food Hub
-                    </h2>
-                    <p class="mt-2 text-gray-600">Platform komunitas yang dirancang untuk kesuksesan Anda.</p>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-6xl mx-auto">
-                    <!-- Column 1: Gratis -->
-                    <div class="text-center">
-                        <img src="https://placehold.co/80x80/E2E8F0/2D3748?text=Rp" alt="Gratis" class="mx-auto mb-4 rounded-full"/>
-                        <h3 class="text-xl font-bold text-dark-gray mb-2">100% Gratis, Tanpa Komisi</h3>
-                        <p class="text-gray-600">
-                            Kami adalah platform komunitas, bukan aplikasi komersil. Seluruh keuntungan penjualan 100% milik Anda. Tidak ada potongan, tidak ada biaya tersembunyi.
-                        </p>
+        <!-- Bagian 3 Kolom Keuntungan -->
+        <section id="partnership-benefits">
+            <div class="container">
+                <div class="benefits-grid">
+                    <!-- Keuntungan 1 -->
+                    <div class="benefit-card">
+                        <div class="benefit-icon">Rp</div>
+                        <h3>100% Gratis, Tanpa Komisi</h3>
+                        <p>Kami adalah platform komunitas. Seluruh keuntungan penjualan 100% milik Anda. Tidak ada potongan, tidak ada biaya tersembunyi.</p>
                     </div>
-                    <!-- Column 2: Jangkauan Luas -->
-                    <div class="text-center">
-                        <img src="https://placehold.co/80x80/E2E8F0/2D3748?text=Target" alt="Jangkauan" class="mx-auto mb-4 rounded-full"/>
-                        <h3 class="text-xl font-bold text-dark-gray mb-2">Akses Langsung ke Mahasiswa</h3>
-                        <p class="text-gray-600">
-                            Usaha Anda akan tampil di depan ribuan mahasiswa yang setiap hari mencari pilihan makanan. Ini adalah etalase digital Anda di jantung kampus.
-                        </p>
+                    <!-- Keuntungan 2 -->
+                    <div class="benefit-card">
+                        <div class="benefit-icon">Target</div>
+                        <h3>Akses Langsung ke Mahasiswa</h3>
+                        <p>Usaha Anda akan tampil di depan ribuan mahasiswa yang setiap hari mencari pilihan makanan. Ini adalah etalase digital Anda di jantung kampus.</p>
                     </div>
-                    <!-- Column 3: Sangat Mudah -->
-                    <div class="text-center">
-                        <img src="https://placehold.co/80x80/E2E8F0/2D3748?text=WA" alt="WhatsApp" class="mx-auto mb-4 rounded-full"/>
-                        <h3 class="text-xl font-bold text-dark-gray mb-2">Pesanan Langsung via WhatsApp</h3>
-                        <p class="text-gray-600">
-                            Tidak perlu install aplikasi atau training rumit. Semua pesanan dari pelanggan akan masuk langsung ke nomor WhatsApp bisnis Anda. Semudah membalas chat.
-                        </p>
+                    <!-- Keuntungan 3 -->
+                    <div class="benefit-card">
+                        <div class="benefit-icon">WA</div>
+                        <h3>Pesanan Langsung via WhatsApp</h3>
+                        <p>Tidak perlu install aplikasi atau training rumit. Semua pesanan akan masuk langsung ke nomor WhatsApp bisnis Anda. Semudah membalas chat.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Call to Action Section -->
-        <section class="py-20 bg-white">
-            <div class="container mx-auto px-6 text-center max-w-4xl">
-                <h2 class="text-3xl md:text-4xl font-extrabold text-dark-gray">
-                    Siap Menjangkau Lebih Banyak Pelanggan?
-                </h2>
-                <p class="mt-4 text-lg text-gray-700 mx-auto">
-                    <strong class="font-semibold text-dark-gray">Kami percaya setiap UMKM punya cerita dan cita rasa yang unik. Misi kami adalah membantu cerita itu sampai ke lebih banyak pelanggan. Kami bukan sekadar platform, kami adalah partner pertumbuhan Anda.</strong>
-                </p>
-                <div class="mt-10">
-                    <a
-                        href="https://wa.me/6281234567890?text=Halo%20Admin%20Telkom%20Food%20Hub,%20saya%20tertarik%20untuk%20bergabung%20menjadi%20mitra."
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="inline-block bg-telkom-red text-white font-bold text-lg px-12 py-4 rounded-lg shadow-lg hover:shadow-xl hover:bg-red-700 transition-all duration-300 transform hover:-translate-y-1"
-                    >
-                        Daftarkan Usaha Saya Sekarang
-                    </a>
-                </div>
+        <!-- Bagian Ajakan Bergabung (Call to Action) -->
+        <section id="partnership-cta">
+            <div class="container">
+                <a href="https://wa.me/6281234567890?text=Halo%20Admin%20Telkom%20Food%20Hub,%20saya%20tertarik%20untuk%20bergabung%20menjadi%20mitra." class="cta-button-large">Pelajari Lebih Lanjut & Gabung</a>
             </div>
         </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-dark-gray text-white">
-      <div class="container mx-auto px-6 py-8 text-center">
-        <p>&copy; 2024 Telkom Food Hub. All rights reserved.</p>
-        <p class="text-sm text-gray-400 mt-2">Sebuah Proyek Komunitas dari Telkom University.</p>
-      </div>
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Telkom Food Hub. Dibuat oleh Zidane & Rizki.</p>
+        </div>
     </footer>
-
+    
 </body>
 </html>
+
