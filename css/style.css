@@ -641,4 +641,140 @@ footer {
     height: 350px;
     border: 1px solid var(--border-color);
 }
+<<<<<<< HEAD
+=======
+#how-to-order {
+  background-color: #f8fafc;
+  padding: 60px 0;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 28px;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.steps-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 80px;
+  flex-wrap: wrap;
+  margin-top: 50px;
+}
+
+.step-item {
+  text-align: center;
+  width: 250px;
+  position: relative;
+}
+
+.circle-bg {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 2px dashed #d3d3d3;
+  margin: 0 auto 20px auto;
+  position: relative;
+}
+
+.step-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -60%);
+  width: 130px;
+  height: auto;
+}
+
+.step-item h3 {
+  font-size: 18px;
+  color: #1e293b;
+  margin-bottom: 8px;
+}
+
+.step-item p {
+  font-size: 15px;
+  color: #64748b;
+  line-height: 1.5;
+}
+#how-to-order {
+  background-color: #f8fafc;
+  padding: 60px 0;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 28px;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.steps-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 80px;
+  flex-wrap: wrap;
+  margin-top: 50px;
+}
+
+.step-item {
+  text-align: center;
+  width: 250px;
+  position: relative;
+}
+
+/* Hapus lingkaran belakang */
+.circle-bg {
+  width: 180px;
+  height: 180px;
+  margin: 0 auto 25px auto;
+  position: relative;
+  background: none;     /* tidak ada warna */
+  border: none;         /* hilangkan garis */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: visible;
+}
+
+/* Gambar PNG */
+.step-icon {
+  position: relative;
+  width: 160px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Teks */
+.step-item h3 {
+  font-size: 18px;
+  color: #1e293b;
+  margin-bottom: 8px;
+}
+
+.step-item p {
+  font-size: 15px;
+  color: #64748b;
+  line-height: 1.5;
+}
+.step-icon-2 {
+  width: 180px;
+  height: auto;
+  margin-top: -1cm; /* naik sekitar 3 cm */
+}
+.step-icon-3 {
+  width: 180px;
+  height: auto;
+  margin-top: -5; /* naik sekitar 3 cm */
+}
+
+.step-icon-4 {
+  width: 180px;
+  height: auto;
+  margin-top: -4cm; /* naik sekitar 3 cm */
+}
+>>>>>>> b1fe884 (First commit)
 
