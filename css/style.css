@@ -1,7 +1,6 @@
 /* ==============================================
-  1. CSS VARIABLES (PALET WARNA "TELKOM PRIDE")
-==============================================
-*/
+  1. CSS VARIABLES (PALET WARNA "TELKOM PRIDE")
+============================================== */
 :root {
     --bg-primary: #FFFFFF; /* Putih Bersih */
     --text-primary: #2D3748; /* Abu-abu Gelap */
@@ -10,9 +9,8 @@
 }
 
 /* ==============================================
-  2. GAYA DASAR (RESEP DASAR)
-==============================================
-*/
+  2. GAYA DASAR (RESEP DASAR)
+============================================== */
 * {
     margin: 0;
     padding: 0;
@@ -20,9 +18,9 @@
 }
 
 body {
-    font-family: 'Inter', sans-serif; /* Pastikan font ini terhubung di HTML */
-    background-color: var(--bg-primary); 
-    color: var(--text-primary); 
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
     line-height: 1.6;
 }
 
@@ -46,11 +44,9 @@ body {
     text-align: center;
 }
 
-
 /* ==============================================
-  3. HEADER (BERLAKU DI SEMUA HALAMAN)
-==============================================
-*/
+  3. HEADER (BERLAKU DI SEMUA HALAMAN)
+============================================== */
 header {
     background-color: var(--bg-primary);
     border-bottom: 1px solid var(--border-color);
@@ -81,9 +77,8 @@ nav a {
 }
 
 /* ==============================================
-  4. GAYA UNTUK HALAMAN UTAMA (INDEX.HTML)
-==============================================
-*/
+  4. GAYA UNTUK HALAMAN UTAMA (INDEX.HTML)
+============================================== */
 #hero-main {
     position: relative;
     padding: 100px 20px;
@@ -98,8 +93,8 @@ nav a {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: 
-        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
         url('https://placehold.co/1400x500/333/FFF?text=Gambar+Keren+dari+Rizki');
     background-size: cover;
     background-position: center;
@@ -178,9 +173,8 @@ nav a {
 }
 
 /* ==============================================
-  5. GAYA UNTUK HALAMAN DETAIL UMKM
-==============================================
-*/
+  5. GAYA UNTUK HALAMAN DETAIL UMKM
+============================================== */
 #hero-detail {
     position: relative;
     text-align: center;
@@ -293,9 +287,8 @@ nav a {
 }
 
 /* ==============================================
-  6. FOOTER (BERLAKU DI SEMUA HALAMAN)
-==============================================
-*/
+  6. FOOTER (BERLAKU DI SEMUA HALAMAN)
+============================================== */
 footer {
     border-top: 1px solid var(--border-color);
     text-align: center;
@@ -305,70 +298,91 @@ footer {
 }
 
 /* ==============================================
-  7. BAGIAN "CARA PESAN"
-==============================================
-*/
+  7. BAGIAN "CARA PESAN"
+============================================== */
 #how-to-order {
+    background-color: #f8fafc;
     padding: 80px 0;
-    background-color: #F7FAFC;
+}
+
+#how-to-order .section-title {
+    /* Mengganti .section-title umum untuk menghindari duplikasi kode */
+    /* Karena sudah ada di bagian 2, hanya perlu pastikan gaya spesifik */
+    font-size: 28px;
+    font-weight: 700;
+    color: #1e293b;
+    /* text-align dan margin-bottom sudah di bagian 2, tidak perlu diulang */
 }
 
 .steps-container {
     display: flex;
-    justify-content: space-between;
-    text-align: center;
-    position: relative;
+    justify-content: center;
     align-items: flex-start;
-}
-
-.steps-container::before {
-    content: '';
-    position: absolute;
-    top: 75px;
-    left: 15%;
-    right: 15%;
-    height: 2px;
-    background-color: var(--border-color);
-    z-index: 0;
+    gap: 80px;
+    flex-wrap: wrap;
+    margin-top: 50px;
 }
 
 .step-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    flex: 1;
+    text-align: center;
+    width: 250px;
     position: relative;
 }
 
-.step-icon-frame {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    background-color: white;
-    border: 2px dashed var(--border-color);
+.circle-bg {
+    width: 180px;
+    height: 180px;
+    margin: 0 auto 25px auto;
+    position: relative;
+    background: none;
+    border: none;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 20px;
-    z-index: 1;
-    font-size: 14px;
-    color: #A0AEC0;
+    overflow: visible;
+}
+
+.step-icon {
+    position: relative;
+    width: 160px;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Penyesuaian posisi ikon */
+.step-icon-2 {
+    width: 180px;
+    height: auto;
+    margin-top: -1cm;
+}
+
+.step-icon-3 {
+    width: 180px;
+    height: auto;
+    margin-top: -0.5cm;
+}
+
+.step-icon-4 {
+    width: 180px;
+    height: auto;
+    margin-top: -0.4cm;
 }
 
 .step-item h3 {
-    font-size: 20px;
-    margin-bottom: 10px;
+    font-size: 18px;
+    color: #1e293b;
+    margin-bottom: 8px;
 }
 
 .step-item p {
-    max-width: 250px;
-    color: #718096;
+    font-size: 15px;
+    color: #64748b;
+    line-height: 1.5;
 }
 
 /* ==============================================
-  8. BAGIAN SLIDER MITRA UMKM
-==============================================
-*/
+  8. BAGIAN SLIDER MITRA UMKM
+============================================== */
 #mitra-slider {
     padding: 80px 0;
     text-align: center;
@@ -445,9 +459,8 @@ footer {
 }
 
 /* ==============================================
-  9. AJAKAN GABUNG MITRA (DI INDEX)
-==============================================
-*/
+  9. AJAKAN GABUNG MITRA (DI INDEX)
+============================================== */
 #join-cta {
     padding: 80px 20px;
     background-color: var(--text-primary);
@@ -483,9 +496,8 @@ footer {
 }
 
 /* ==============================================
-  10. GAYA UNTUK HALAMAN PARTNERSHIP
-==============================================
-*/
+  10. GAYA UNTUK HALAMAN PARTNERSHIP
+============================================== */
 #partnership-hero {
     text-align: center;
     padding: 60px 20px;
@@ -550,9 +562,8 @@ footer {
 }
 
 /* ==============================================
-  11. BAGIAN "OUR MISSION" (DI INDEX)
-==============================================
-*/
+  11. BAGIAN "OUR MISSION" (DI INDEX)
+============================================== */
 #our-mission {
     padding: 80px 0;
     text-align: center;
@@ -590,9 +601,8 @@ footer {
 }
 
 /* ==============================================
-  12. BAGIAN KRITIK & SARAN (DI INDEX)
-==============================================
-*/
+  12. BAGIAN KRITIK & SARAN (DI INDEX)
+============================================== */
 #feedback {
     padding: 80px 0;
     text-align: center;
@@ -604,9 +614,8 @@ footer {
 }
 
 /* ==============================================
-  13. BAGIAN LOKASI & INFO (DI HALAMAN DETAIL)
-==============================================
-*/
+  13. BAGIAN LOKASI & INFO (DI HALAMAN DETAIL)
+============================================== */
 #location-info {
     padding: 60px 0;
     background-color: #F7FAFC;
@@ -641,140 +650,3 @@ footer {
     height: 350px;
     border: 1px solid var(--border-color);
 }
-<<<<<<< HEAD
-=======
-#how-to-order {
-  background-color: #f8fafc;
-  padding: 60px 0;
-}
-
-.section-title {
-  text-align: center;
-  font-size: 28px;
-  font-weight: 700;
-  color: #1e293b;
-}
-
-.steps-container {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 80px;
-  flex-wrap: wrap;
-  margin-top: 50px;
-}
-
-.step-item {
-  text-align: center;
-  width: 250px;
-  position: relative;
-}
-
-.circle-bg {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  border: 2px dashed #d3d3d3;
-  margin: 0 auto 20px auto;
-  position: relative;
-}
-
-.step-icon {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -60%);
-  width: 130px;
-  height: auto;
-}
-
-.step-item h3 {
-  font-size: 18px;
-  color: #1e293b;
-  margin-bottom: 8px;
-}
-
-.step-item p {
-  font-size: 15px;
-  color: #64748b;
-  line-height: 1.5;
-}
-#how-to-order {
-  background-color: #f8fafc;
-  padding: 60px 0;
-}
-
-.section-title {
-  text-align: center;
-  font-size: 28px;
-  font-weight: 700;
-  color: #1e293b;
-}
-
-.steps-container {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 80px;
-  flex-wrap: wrap;
-  margin-top: 50px;
-}
-
-.step-item {
-  text-align: center;
-  width: 250px;
-  position: relative;
-}
-
-/* Hapus lingkaran belakang */
-.circle-bg {
-  width: 180px;
-  height: 180px;
-  margin: 0 auto 25px auto;
-  position: relative;
-  background: none;     /* tidak ada warna */
-  border: none;         /* hilangkan garis */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: visible;
-}
-
-/* Gambar PNG */
-.step-icon {
-  position: relative;
-  width: 160px;
-  height: auto;
-  object-fit: contain;
-}
-
-/* Teks */
-.step-item h3 {
-  font-size: 18px;
-  color: #1e293b;
-  margin-bottom: 8px;
-}
-
-.step-item p {
-  font-size: 15px;
-  color: #64748b;
-  line-height: 1.5;
-}
-.step-icon-2 {
-  width: 180px;
-  height: auto;
-  margin-top: -1cm; /* naik sekitar 3 cm */
-}
-.step-icon-3 {
-  width: 180px;
-  height: auto;
-  margin-top: -5; /* naik sekitar 3 cm */
-}
-
-.step-icon-4 {
-  width: 180px;
-  height: auto;
-  margin-top: -4cm; /* naik sekitar 3 cm */
-}
->>>>>>> b1fe884 (First commit)
-
