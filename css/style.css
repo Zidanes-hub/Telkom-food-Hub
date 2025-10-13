@@ -1,59 +1,84 @@
-/* ==============================================
-  1. CSS VARIABLES (PALET WARNA "TELKOM PRIDE")
-==============================================
-*/
+/* --------------------------------------------------- */
+/* Telkom Food Hub - style.css
+/* Palet Warna & Gaya Lengkap
+/* Oleh: Dev-Buddy 💻
+/* --------------------------------------------------- */
+
+/* -- 1. DEKLARASI FONT & WARNA (CSS VARIABLES) -- */
 :root {
-    --bg-primary: #FFFFFF; /* Putih Bersih */
-    --text-primary: #2D3748; /* Abu-abu Gelap */
-    --accent-primary: #BE1E2D; /* Merah Telkom */
-    --border-color: #E2E8F0; /* Abu-abu Terang untuk border */
+    --font-utama: 'Inter', sans-serif;
+    
+    /* Palet Warna */
+    --warna-merah-telkom: #E60012;
+    --warna-kuning-ceria: #FFC700;
+    --warna-teks-utama: #2D2D2D;
+    --warna-teks-sekunder: #6C757D;
+    --warna-abu-netral: #F0F0F0;
+    --warna-putih-gading: #FAFAFA;
+    --warna-putih-murni: #FFFFFF;
+
+    /* Bayangan (Shadow) untuk efek 3D */
+    --shadow-kecil: 0 2px 4px rgba(0,0,0,0.05);
+    --shadow-medium: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-/* ==============================================
-  2. GAYA DASAR (RESEP DASAR)
-==============================================
-*/
-* {
+/* -- 2. RESET & GAYA DASAR (BODY) -- */
+*, *::before, *::after {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-    font-family: 'Inter', sans-serif; /* Pastikan font ini terhubung di HTML */
-    background-color: var(--bg-primary); 
-    color: var(--text-primary); 
+    font-family: var(--font-utama);
+    background-color: var(--warna-putih-gading);
+    color: var(--warna-teks-utama);
     line-height: 1.6;
 }
 
 .container {
-    max-width: 1200px;
+    width: 90%;
+    max-width: 1140px;
     margin: 0 auto;
-    padding: 20px;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+section {
+    padding: 60px 0;
 }
 
 .section-title {
     text-align: center;
-    font-size: 36px;
-    margin-bottom: 20px;
+    font-size: 2.25rem;
+    margin-bottom: 1rem;
+    color: var(--warna-teks-utama);
 }
 
 .section-subtitle {
-    max-width: 700px;
-    margin: 0 auto 50px;
-    color: #718096;
-    font-size: 18px;
     text-align: center;
+    max-width: 600px;
+    margin: 0 auto 40px auto;
+    color: var(--warna-teks-sekunder);
 }
 
-
-/* ==============================================
-  3. HEADER (BERLAKU DI SEMUA HALAMAN)
-==============================================
-*/
+/* -- 3. HEADER & NAVIGASI -- */
 header {
-    background-color: var(--bg-primary);
-    border-bottom: 1px solid var(--border-color);
+    background-color: var(--warna-putih-murni);
+    padding: 15px 0;
+    box-shadow: var(--shadow-kecil);
     position: sticky;
     top: 0;
     z-index: 100;
@@ -63,84 +88,61 @@ header .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-top: 15px;
-    padding-bottom: 15px;
 }
 
-.logo {
-    font-size: 24px;
-    font-weight: bold;
-    color: var(--accent-primary);
-    text-decoration: none;
+header .logo {
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: var(--warna-merah-telkom);
 }
 
-nav a {
-    color: var(--text-primary);
-    text-decoration: none;
+header nav a {
+    margin-left: 20px;
     font-weight: 500;
+    transition: color 0.3s ease;
 }
 
-/* ==============================================
-  4. GAYA UNTUK HALAMAN UTAMA (INDEX.HTML)
-==============================================
-*/
+header nav a:hover {
+    color: var(--warna-merah-telkom);
+}
+
+/* -- 4. HERO SECTION -- */
 #hero-main {
-    position: relative;
-    padding: 100px 20px;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://placehold.co/1920x600/E60012/FFFFFF?text=Hero+Image+Makanan') no-repeat center center/cover;
+    color: var(--warna-putih-murni);
+    padding: 100px 0;
     text-align: center;
-    color: white;
-}
-
-#hero-main::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: 
-        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
-        url('https://placehold.co/1400x500/333/FFF?text=Gambar+Keren+dari+Rizki');
-    background-size: cover;
-    background-position: center;
-    z-index: -1;
 }
 
 #hero-main h1 {
-    font-size: 48px;
-    margin-bottom: 15px;
+    font-size: 3rem;
+    font-weight: 800;
 }
 
 #hero-main p {
-    font-size: 18px;
-    color: white;
+    font-size: 1.25rem;
+    max-width: 600px;
+    margin: 10px auto 0 auto;
 }
 
-#umkm-showcase {
-    padding: 60px 0;
-}
-
+/* -- 5. KARTU UMKM -- */
 .umkm-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
 }
 
 .umkm-card {
-    background-color: white;
-    border: 1px solid var(--border-color);
+    background-color: var(--warna-putih-murni);
     border-radius: 12px;
     overflow: hidden;
-    text-decoration: none;
-    color: var(--text-primary);
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-    transition: all 0.3s ease;
+    box-shadow: var(--shadow-medium);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .umkm-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 15px rgba(0,0,0,0.1);
-    border-color: var(--accent-primary);
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
 }
 
 .umkm-card img {
@@ -159,622 +161,206 @@ nav a {
 
 .category-tag {
     display: inline-block;
-    background-color: #E2E8F0;
-    color: #4A5568;
-    padding: 4px 10px;
+    background-color: var(--warna-abu-netral);
+    padding: 5px 10px;
     border-radius: 20px;
-    font-size: 12px;
+    font-size: 0.8rem;
     font-weight: 500;
     margin-bottom: 15px;
 }
 
-.price-info {
-    font-weight: bold;
+.price-info .new-price {
+    color: var(--warna-merah-telkom);
+    font-weight: 700;
+    font-size: 1.1rem;
 }
 
-.new-price {
-    color: var(--accent-primary);
-    font-size: 18px;
-}
 
-/* ==============================================
-  5. GAYA UNTUK HALAMAN DETAIL UMKM
-==============================================
-*/
-#hero-detail {
-    position: relative;
-    text-align: center;
-    color: white;
-    padding: 80px 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.hero-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-    z-index: -1;
-}
-
-.hero-background::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.6);
-}
-
-#hero-detail h1 {
-    font-size: 56px;
-    margin-bottom: 10px;
-}
-
-#hero-detail p {
-    font-size: 20px;
-    margin-bottom: 30px;
-    font-style: italic;
-}
-
-.cta-button {
-    background-color: var(--accent-primary);
-    color: white;
-    padding: 15px 30px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: bold;
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    transition: background-color 0.3s ease;
-}
-
-.cta-button:hover {
-    background-color: #a41926;
-}
-
-#menu-detail {
-    padding: 60px 0;
-}
-
-.menu-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-}
-
-.menu-card {
-    background-color: white;
-    border: 1px solid var(--border-color);
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-    position: relative;
-}
-
-.menu-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-}
-
-.menu-card-info {
-    padding: 20px;
-}
-
-.menu-card-info h4 {
-    font-size: 20px;
-    margin-bottom: 5px;
-}
-
-.price {
-    font-size: 18px;
-    font-weight: bold;
-    color: var(--accent-primary);
-}
-
-.bestseller-tag {
-    position: absolute;
-    top: 15px;
-    left: 15px;
-    background-color: var(--accent-primary);
-    color: white;
-    padding: 5px 12px;
-    border-radius: 20px;
-    font-size: 12px;
-    font-weight: bold;
-}
-
-/* ==============================================
-  6. FOOTER (BERLAKU DI SEMUA HALAMAN)
-==============================================
-*/
-footer {
-    border-top: 1px solid var(--border-color);
-    text-align: center;
-    padding: 30px 20px;
-    margin-top: 0;
-    color: #718096;
-}
-
-/* ==============================================
-  7. BAGIAN "CARA PESAN"
-==============================================
-*/
+/* -- 6. BAGIAN CARA PESAN -- */
 #how-to-order {
-    padding: 80px 0;
-    background-color: #F7FAFC;
+    background-color: var(--warna-putih-murni);
 }
 
 .steps-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    gap: 30px;
     text-align: center;
-    position: relative;
-    align-items: flex-start;
-}
-
-.steps-container::before {
-    content: '';
-    position: absolute;
-    top: 75px;
-    left: 15%;
-    right: 15%;
-    height: 2px;
-    background-color: var(--border-color);
-    z-index: 0;
+    flex-wrap: wrap; /* Agar responsif di layar kecil */
 }
 
 .step-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    flex: 1;
-    position: relative;
+    flex-basis: 280px; /* Lebar dasar setiap item */
 }
 
 .step-icon-frame {
-    width: 150px;
-    height: 150px;
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 20px auto;
+    background-color: var(--warna-kuning-ceria);
     border-radius: 50%;
-    background-color: white;
-    border: 2px dashed var(--border-color);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
-    z-index: 1;
-    font-size: 14px;
-    color: #A0AEC0;
+    overflow: hidden; /* Sembunyikan bagian gambar yang 'tumpah' */
+    display: grid; /* Trik biar gambar ditengah */
+    place-items: center; /* Trik biar gambar ditengah */
+}
+
+.step-icon-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ini properti saktinya! */
 }
 
 .step-item h3 {
-    font-size: 20px;
     margin-bottom: 10px;
 }
 
-.step-item p {
-    max-width: 250px;
-    color: #718096;
-}
 
-/* ==============================================
-  8. BAGIAN SLIDER MITRA UMKM
-==============================================
-*/
+/* -- 7. SLIDER MITRA UMKM -- */
 #mitra-slider {
+    background-color: var(--warna-teks-utama);
+    color: var(--warna-putih-gading);
     padding: 80px 0;
-    text-align: center;
+    overflow: hidden;
 }
 
 .slider {
-    background: white;
-    box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.125);
-    height: 400px;
-    margin: auto;
-    overflow: hidden;
+    width: 100%;
     position: relative;
-    width: 90%;
-}
-
-.slider::before,
-.slider::after {
-    background: linear-gradient(to right, white 0%, rgba(255, 255, 255, 0) 100%);
-    content: "";
-    height: 100%;
-    position: absolute;
-    width: 15%;
-    z-index: 2;
-}
-
-.slider::before {
-    left: 0;
-    top: 0;
-}
-
-.slider::after {
-    right: 0;
-    top: 0;
-    transform: rotateZ(180deg);
+    display: grid;
+    place-items: center;
 }
 
 .slider-track {
     display: flex;
-    width: calc(300px * 14);
+    width: calc(300px * 14); /* 300px lebar per slide * 14 slides */
     animation: scroll 40s linear infinite;
 }
 
-.slider-track:hover {
+/* -- PENAMBAHAN UNTUK PAUSE ON HOVER -- */
+.slider:hover .slider-track {
     animation-play-state: paused;
 }
 
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-300px * 7)); } /* Mundur sejauh 7 slide */
+}
+
 .slide {
-    height: 400px;
     width: 300px;
-    padding: 15px;
+    height: 400px;
+    padding: 0 15px;
 }
 
 .slide img {
-    height: 100%;
     width: 100%;
+    height: 100%;
     object-fit: cover;
-    border-radius: 10px;
-    filter: grayscale(100%);
+    border-radius: 12px;
 }
 
-.quote {
-    font-size: 22px;
-    font-style: italic;
-    color: #718096;
+#mitra-slider .quote {
+    text-align: center;
     margin-top: 40px;
+    font-style: italic;
+    font-size: 1.1rem;
     max-width: 700px;
     margin-left: auto;
     margin-right: auto;
 }
 
-@keyframes scroll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(calc(-300px * 7)); }
+/* -- 8. BAGIAN TENTANG KAMI (OUR MISSION) -- */
+.mission-container {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    text-align: center;
+    flex-wrap: wrap;
 }
 
-/* ==============================================
-  9. AJAKAN GABUNG MITRA (DI INDEX)
-==============================================
-*/
+.profile-item {
+    flex-basis: 250px;
+}
+
+.profile-picture {
+    width: 150px;
+    height: 150px;
+    background-color: var(--warna-abu-netral);
+    background-image: url('https://placehold.co/150x150/E2E8F0/4A5568?text=Tim');
+    background-size: cover;
+    border-radius: 50%;
+    margin: 0 auto 15px auto;
+    border: 4px solid var(--warna-putih-murni);
+    box-shadow: var(--shadow-medium);
+}
+
+.profile-role {
+    color: var(--warna-teks-sekunder);
+    font-size: 0.9rem;
+}
+
+
+/* -- 9. BAGIAN AJAKAN GABUNG (CTA) -- */
 #join-cta {
-    padding: 80px 20px;
-    background-color: var(--text-primary);
-    color: white;
+    background-color: var(--warna-merah-telkom);
+    color: var(--warna-putih-murni);
     text-align: center;
 }
 
 #join-cta h2 {
-    font-size: 36px;
-    margin-bottom: 15px;
+    font-size: 2.5rem;
 }
 
 #join-cta p {
-    font-size: 18px;
-    max-width: 600px;
-    margin: 0 auto 30px;
-    color: #A0AEC0;
+    margin: 10px 0 30px 0;
+    font-size: 1.1rem;
+}
+
+#join-cta .cta-button-large {
+    background-color: var(--warna-putih-murni);
+    color: var(--warna-merah-telkom);
+}
+
+#join-cta .cta-button-large:hover {
+    background-color: var(--warna-abu-netral);
+}
+
+
+/* -- 10. BAGIAN FEEDBACK -- */
+#feedback {
+    background-color: var(--warna-abu-netral);
+    text-align: center;
+}
+
+
+/* -- 11. TOMBOL (BUTTONS) -- */
+.cta-button, .cta-button-large {
+    display: inline-block;
+    background-color: var(--warna-merah-telkom);
+    color: var(--warna-putih-murni);
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-weight: 700;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .cta-button-large {
-    background-color: var(--accent-primary);
-    color: white;
-    padding: 18px 40px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-size: 18px;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
+    padding: 15px 35px;
+    font-size: 1.1rem;
 }
 
-.cta-button-large:hover {
-    background-color: #a41926;
+.cta-button:hover, .cta-button-large:hover {
+    background-color: #C0000F; /* Versi lebih gelap dari merah telkom */
+    transform: scale(1.05);
 }
 
-/* ==============================================
-  10. GAYA UNTUK HALAMAN PARTNERSHIP
-==============================================
-*/
-#partnership-hero {
+
+/* -- 12. FOOTER -- */
+footer {
+    background-color: var(--warna-teks-utama);
+    color: var(--warna-putih-gading);
     text-align: center;
-    padding: 60px 20px;
-    background-color: #F7FAFC;
-    border-bottom: 1px solid var(--border-color);
+    padding: 20px 0;
 }
-
-#partnership-hero h1 {
-    font-size: 42px;
-    margin-bottom: 10px;
-}
-
-#partnership-hero p {
-    font-size: 18px;
-    color: #718096;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-#partnership-benefits {
-    padding: 80px 0;
-}
-
-.benefits-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
-    text-align: center;
-}
-
-.benefit-card {
-    padding: 20px;
-}
-
-.benefit-icon {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    background-color: #FEF2F2;
-    color: var(--accent-primary);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 24px;
-    font-weight: bold;
-    margin: 0 auto 20px;
-}
-
-.benefit-card h3 {
-    font-size: 22px;
-    margin-bottom: 10px;
-}
-
-.benefit-card p {
-    color: #718096;
-}
-
-#partnership-cta {
-    text-align: center;
-    padding: 60px 20px;
-    background-color: #F7FAFC;
-}
-
-/* ==============================================
-  11. BAGIAN "OUR MISSION" (DI INDEX)
-==============================================
-*/
-#our-mission {
-    padding: 80px 0;
-    text-align: center;
-}
-
-.mission-container {
-    display: flex;
-    justify-content: center;
-    gap: 80px;
-}
-
-.profile-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.profile-picture {
-    width: 180px;
-    height: 180px;
-    border-radius: 50%;
-    background-color: var(--border-color);
-    margin-bottom: 20px;
-    border: 4px solid white;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-.profile-item h4 {
-    font-size: 22px;
-    margin-bottom: 5px;
-}
-
-.profile-item .profile-role {
-    color: #718096;
-}
-
-/* ==============================================
-  12. BAGIAN KRITIK & SARAN (DI INDEX)
-==============================================
-*/
-#feedback {
-    padding: 80px 0;
-    text-align: center;
-    background-color: #F7FAFC;
-}
-
-#feedback .cta-button {
-    margin-top: -20px;
-}
-
-/* ==============================================
-  13. BAGIAN LOKASI & INFO (DI HALAMAN DETAIL)
-==============================================
-*/
-#location-info {
-    padding: 60px 0;
-    background-color: #F7FAFC;
-}
-
-.location-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    align-items: center;
-}
-
-.info-text h3 {
-    font-size: 22px;
-    color: var(--accent-primary);
-    margin-top: 20px;
-    margin-bottom: 5px;
-}
-
-.info-text p {
-    font-size: 18px;
-    color: #718096;
-}
-
-.info-text h3:first-child {
-    margin-top: 0;
-}
-
-.map-frame {
-    border-radius: 12px;
-    overflow: hidden;
-    height: 350px;
-    border: 1px solid var(--border-color);
-}
-<<<<<<< HEAD
-=======
-#how-to-order {
-  background-color: #f8fafc;
-  padding: 60px 0;
-}
-
-.section-title {
-  text-align: center;
-  font-size: 28px;
-  font-weight: 700;
-  color: #1e293b;
-}
-
-.steps-container {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 80px;
-  flex-wrap: wrap;
-  margin-top: 50px;
-}
-
-.step-item {
-  text-align: center;
-  width: 250px;
-  position: relative;
-}
-
-.circle-bg {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  border: 2px dashed #d3d3d3;
-  margin: 0 auto 20px auto;
-  position: relative;
-}
-
-.step-icon {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -60%);
-  width: 130px;
-  height: auto;
-}
-
-.step-item h3 {
-  font-size: 18px;
-  color: #1e293b;
-  margin-bottom: 8px;
-}
-
-.step-item p {
-  font-size: 15px;
-  color: #64748b;
-  line-height: 1.5;
-}
-#how-to-order {
-  background-color: #f8fafc;
-  padding: 60px 0;
-}
-
-.section-title {
-  text-align: center;
-  font-size: 28px;
-  font-weight: 700;
-  color: #1e293b;
-}
-
-.steps-container {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 80px;
-  flex-wrap: wrap;
-  margin-top: 50px;
-}
-
-.step-item {
-  text-align: center;
-  width: 250px;
-  position: relative;
-}
-
-/* Hapus lingkaran belakang */
-.circle-bg {
-  width: 180px;
-  height: 180px;
-  margin: 0 auto 25px auto;
-  position: relative;
-  background: none;     /* tidak ada warna */
-  border: none;         /* hilangkan garis */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: visible;
-}
-
-/* Gambar PNG */
-.step-icon {
-  position: relative;
-  width: 160px;
-  height: auto;
-  object-fit: contain;
-}
-
-/* Teks */
-.step-item h3 {
-  font-size: 18px;
-  color: #1e293b;
-  margin-bottom: 8px;
-}
-
-.step-item p {
-  font-size: 15px;
-  color: #64748b;
-  line-height: 1.5;
-}
-.step-icon-2 {
-  width: 180px;
-  height: auto;
-  margin-top: -1cm; /* naik sekitar 3 cm */
-}
-.step-icon-3 {
-  width: 180px;
-  height: auto;
-  margin-top: -5; /* naik sekitar 3 cm */
-}
-
-.step-icon-4 {
-  width: 180px;
-  height: auto;
-  margin-top: -4cm; /* naik sekitar 3 cm */
-}
->>>>>>> b1fe884 (First commit)
 
