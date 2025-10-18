@@ -1,29 +1,41 @@
 /* --------------------------------------------------- */
-/* Telkom Food Hub - style.css
-/* Palet Warna & Gaya Lengkap
-/* Oleh: Dev-Buddy 💻
+
+
+/* Telkom Food Hub - style.css (Versi Rapi & Terstruktur) */
+
+
 /* --------------------------------------------------- */
 
+
 /* -- 1. DEKLARASI FONT & WARNA (CSS VARIABLES) -- */
+
 :root {
     --font-utama: 'Inter', sans-serif;
-    
+    --font-judul: 'Poppins', sans-serif;
+    --font-hias: 'Pacifico', cursive;
     /* Palet Warna */
     --warna-merah-telkom: #E60012;
+    --warna-merah-gelap: #C0000F;
     --warna-kuning-ceria: #FFC700;
     --warna-teks-utama: #2D2D2D;
     --warna-teks-sekunder: #6C757D;
     --warna-abu-netral: #F0F0F0;
     --warna-putih-gading: #FAFAFA;
     --warna-putih-murni: #FFFFFF;
-
-    /* Bayangan (Shadow) untuk efek 3D */
-    --shadow-kecil: 0 2px 4px rgba(0,0,0,0.05);
-    --shadow-medium: 0 4px 12px rgba(0,0,0,0.1);
+    --warna-biru-sekunder: #4A90E2;
+    --warna-hijau-sukses: #48BB78;
+    /* Bayangan (Shadow) */
+    --shadow-kecil: 0 2px 4px rgba(0, 0, 0, 0.05);
+    --shadow-medium: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --shadow-besar: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
-/* -- 2. RESET & GAYA DASAR (BODY) -- */
-*, *::before, *::after {
+
+/* -- 2. RESET & GAYA DASAR -- */
+
+*,
+*::before,
+*::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -62,22 +74,26 @@ section {
 
 .section-title {
     text-align: center;
+    font-family: var(--font-judul);
     font-size: 2.25rem;
+    /* Ukuran font judul section yang konsisten */
     margin-bottom: 1rem;
     color: var(--warna-teks-utama);
 }
 
 .section-subtitle {
     text-align: center;
-    max-width: 600px;
+    max-width: 900px;
     margin: 0 auto 40px auto;
     color: var(--warna-teks-sekunder);
 }
 
+
 /* -- 3. HEADER & NAVIGASI -- */
+
 header {
     background-color: var(--warna-putih-murni);
-    padding: 15px 0;
+    padding: 5px 0;
     box-shadow: var(--shadow-kecil);
     position: sticky;
     top: 0;
@@ -91,6 +107,7 @@ header .container {
 }
 
 header .logo {
+    font-family: var(--font-judul);
     font-weight: 800;
     font-size: 1.5rem;
     color: var(--warna-merah-telkom);
@@ -106,11 +123,13 @@ header nav a:hover {
     color: var(--warna-merah-telkom);
 }
 
-/* -- 4. HERO SECTION -- */
+
+/* -- 4. HERO & DATE/TIME -- */
+
 #hero-main {
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://placehold.co/1920x600/E60012/FFFFFF?text=Hero+Image+Makanan') no-repeat center center/cover;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://placehold.co/1920x600/E60012/FFFFFF?text=Hero+Image+Makanan') no-repeat center center/cover;
     color: var(--warna-putih-murni);
-    padding: 100px 0;
+    padding: 150px 0;
     text-align: center;
 }
 
@@ -125,58 +144,126 @@ header nav a:hover {
     margin: 10px auto 0 auto;
 }
 
-/* -- 5. KARTU UMKM -- */
-.umkm-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
+.date-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    padding: 40px 0;
+    background-color: var(--warna-putih-gading);
+    border-top: 1px solid var(--warna-abu-netral);
+    border-bottom: 1px solid var(--warna-abu-netral);
 }
 
-.umkm-card {
-    background-color: var(--warna-putih-murni);
-    border-radius: 12px;
+#tanggal-hari-ini {
+    font-weight: 500;
+    color: var(--warna-teks-utama);
+    font-size: 1.1em;
+    margin: 0;
+    animation: tracking-in-expand 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+}
+
+
+/* -- 5. FEATURED CARDS (MAU MAKAN APA HARI INI?) -- */
+
+.featured-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+    margin-top: 3rem;
+}
+
+.featured-card {
+    background: var(--warna-putih-murni);
+    border-radius: 20px;
     overflow: hidden;
     box-shadow: var(--shadow-medium);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: all 0.4s ease;
+    animation: fadeInUp 0.8s ease-out;
+    animation-fill-mode: both;
 }
 
-.umkm-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+.featured-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-besar);
 }
 
-.umkm-card img {
+.card-image-wrapper {
+    position: relative;
+    height: 250px;
+    /* Menyesuaikan tinggi gambar */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    background: var(--warna-putih-gading);
+}
+
+.food-image {
+    position: relative;
+    z-index: 2;
     width: 100%;
-    height: 200px;
+    height: 100%;
     object-fit: cover;
+    border-radius: 12px;
+    /* Membuat gambar kotak dengan sudut tumpul */
+    transition: transform 0.5s ease;
 }
 
-.umkm-info {
-    padding: 20px;
+.featured-card:hover .food-image {
+    transform: scale(1.05);
 }
 
-.umkm-info h3 {
-    margin-bottom: 10px;
+.card-content {
+    padding: 1.5rem;
+    text-align: center;
 }
 
-.category-tag {
-    display: inline-block;
-    background-color: var(--warna-abu-netral);
-    padding: 5px 10px;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: 500;
-    margin-bottom: 15px;
+.card-category {
+    font-size: 0.9rem;
+    color: var(--warna-teks-sekunder);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
 }
 
-.price-info .new-price {
+.card-title {
+    font-family: var(--font-hias);
+    font-size: 2rem;
+    /* Ukuran font nama warung */
     color: var(--warna-merah-telkom);
+    margin-bottom: 1rem;
+}
+
+.card-description {
+    color: var(--warna-teks-sekunder);
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+.visit-button {
+    background: var(--warna-merah-telkom);
+    color: var(--warna-putih-murni);
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
     font-weight: 700;
-    font-size: 1.1rem;
+    font-size: 1rem;
+    display: inline-block;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-kecil);
+}
+
+.visit-button:hover {
+    background: var(--warna-merah-gelap);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-medium);
 }
 
 
 /* -- 6. BAGIAN CARA PESAN -- */
+
 #how-to-order {
     background-color: var(--warna-putih-murni);
 }
@@ -186,28 +273,28 @@ header nav a:hover {
     justify-content: space-around;
     gap: 30px;
     text-align: center;
-    flex-wrap: wrap; /* Agar responsif di layar kecil */
+    flex-wrap: wrap;
 }
 
 .step-item {
-    flex-basis: 280px; /* Lebar dasar setiap item */
+    flex-basis: 280px;
 }
 
 .step-icon-frame {
-    width: 80px;
-    height: 80px;
-    margin: 0 auto 20px auto;
-    background-color: var(--warna-kuning-ceria);
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 30px auto;
+    background-color: var(--warna-abu-netral);
     border-radius: 50%;
-    overflow: hidden; /* Sembunyikan bagian gambar yang 'tumpah' */
-    display: grid; /* Trik biar gambar ditengah */
-    place-items: center; /* Trik biar gambar ditengah */
+    overflow: hidden;
+    display: grid;
+    place-items: center;
 }
 
 .step-icon-frame img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Ini properti saktinya! */
+    object-fit: cover;
 }
 
 .step-item h3 {
@@ -216,11 +303,16 @@ header nav a:hover {
 
 
 /* -- 7. SLIDER MITRA UMKM -- */
+
 #mitra-slider {
     background-color: var(--warna-teks-utama);
     color: var(--warna-putih-gading);
     padding: 80px 0;
     overflow: hidden;
+}
+
+#mitra-slider .section-title {
+    color: var(--warna-putih-murni);
 }
 
 .slider {
@@ -232,18 +324,12 @@ header nav a:hover {
 
 .slider-track {
     display: flex;
-    width: calc(300px * 14); /* 300px lebar per slide * 14 slides */
+    width: calc(300px * 14);
     animation: scroll 40s linear infinite;
 }
 
-/* -- PENAMBAHAN UNTUK PAUSE ON HOVER -- */
 .slider:hover .slider-track {
     animation-play-state: paused;
-}
-
-@keyframes scroll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(calc(-300px * 7)); } /* Mundur sejauh 7 slide */
 }
 
 .slide {
@@ -267,40 +353,62 @@ header nav a:hover {
     max-width: 700px;
     margin-left: auto;
     margin-right: auto;
+    color: var(--warna-putih-gading);
+    /* Warna quote di slider */
 }
+
 
 /* -- 8. BAGIAN TENTANG KAMI (OUR MISSION) -- */
-.mission-container {
+
+.profile-card {
     display: flex;
-    justify-content: center;
+    align-items: center;
     gap: 50px;
-    text-align: center;
-    flex-wrap: wrap;
-}
-
-.profile-item {
-    flex-basis: 250px;
-}
-
-.profile-picture {
-    width: 150px;
-    height: 150px;
-    background-color: var(--warna-abu-netral);
-    background-image: url('https://placehold.co/150x150/E2E8F0/4A5568?text=Tim');
-    background-size: cover;
-    border-radius: 50%;
-    margin: 0 auto 15px auto;
-    border: 4px solid var(--warna-putih-murni);
+    background-color: var(--warna-putih-murni);
+    padding: 40px;
+    border-radius: 12px;
     box-shadow: var(--shadow-medium);
+    margin-bottom: 30px;
 }
 
-.profile-role {
-    color: var(--warna-teks-sekunder);
-    font-size: 0.9rem;
+.profile-image-wrapper {
+    flex-shrink: 0;
+    width: 200px;
+    height: 200px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.profile-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-details h4 {
+    margin-top: 0;
+    color: var(--warna-merah-telkom);
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 1rem;
+}
+
+.social-links a img {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.2s ease;
+}
+
+.social-links a:hover img {
+    transform: scale(1.1);
 }
 
 
 /* -- 9. BAGIAN AJAKAN GABUNG (CTA) -- */
+
 #join-cta {
     background-color: var(--warna-merah-telkom);
     color: var(--warna-putih-murni);
@@ -309,6 +417,7 @@ header nav a:hover {
 
 #join-cta h2 {
     font-size: 2.5rem;
+    color: var(--warna-putih-murni);
 }
 
 #join-cta p {
@@ -326,37 +435,8 @@ header nav a:hover {
 }
 
 
-/* -- 10. BAGIAN FEEDBACK -- */
-#feedback {
-    background-color: var(--warna-abu-netral);
-    text-align: center;
-}
+/* -- 10. FOOTER -- */
 
-
-/* -- 11. TOMBOL (BUTTONS) -- */
-.cta-button, .cta-button-large {
-    display: inline-block;
-    background-color: var(--warna-merah-telkom);
-    color: var(--warna-putih-murni);
-    padding: 12px 25px;
-    border-radius: 8px;
-    font-weight: 700;
-    text-align: center;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.cta-button-large {
-    padding: 15px 35px;
-    font-size: 1.1rem;
-}
-
-.cta-button:hover, .cta-button-large:hover {
-    background-color: #C0000F; /* Versi lebih gelap dari merah telkom */
-    transform: scale(1.05);
-}
-
-
-/* -- 12. FOOTER -- */
 footer {
     background-color: var(--warna-teks-utama);
     color: var(--warna-putih-gading);
@@ -364,3 +444,71 @@ footer {
     padding: 20px 0;
 }
 
+
+/* -- 11. ANIMASI -- */
+
+@keyframes tracking-in-expand {
+    0% {
+        letter-spacing: -0.5em;
+        opacity: 0;
+    }
+    40% {
+        opacity: 0.6;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-300px * 7));
+    }
+}
+
+
+/* -- 12. ATURAN RESPONSIVE -- */
+
+@media (max-width: 992px) {
+    .featured-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 1.8rem;
+    }
+    #hero-main {
+        padding: 100px 0;
+    }
+    #hero-main h1 {
+        font-size: 2.5rem;
+    }
+    .profile-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px;
+    }
+    .profile-image-wrapper {
+        margin-bottom: 15px;
+    }
+    .social-links {
+        justify-content: center;
+    }
+}
