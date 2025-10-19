@@ -17,9 +17,17 @@
     <header>
         <div class="container">
             <a href="index.html" class="logo">Telkom Food Hub</a>
-            <nav>
-                <a href="#our-mission">Tentang Kami</a>
+            <nav id="nav-menu">
+                <a href="#how-to-order" class="nav-link">Cara Pesan</a>
+                <a href="#join-cta" class="nav-link">Gabung Mitra</a>
+                <a href="#feedback" class="nav-link">Kritik & Saran</a>
+                <a href="#our-mission" class="nav-link">Tentang Kami</a>
             </nav>
+            <button id="hamburger-btn" aria-label="Buka menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </header>
 
@@ -32,16 +40,21 @@
         </section>
 
         <!-- WADAH UNTUK TANGGAL & JAM REAL-TIME -->
-        <div class="date-container">
-            <!-- Jam Analog Real-time -->
-            <div class="analog-clock">
-                <div class="hand hour-hand"></div>
-                <div class="hand minute-hand"></div>
-                <div class="hand second-hand"></div>
+        <section class="time-greeting-section">
+            <div class="date-container">
+                <!-- Jam Analog Real-time -->
+                <div class="analog-clock">
+                    <div class="hand hour-hand"></div>
+                    <div class="hand minute-hand"></div>
+                    <div class="hand second-hand"></div>
+                </div>
+                <!-- Wadah untuk Tulisan Tanggal -->
+                <p id="tanggal-hari-ini"></p>
             </div>
-            <!-- Wadah untuk Tulisan Tanggal (yang kemarin hilang) -->
-            <p id="tanggal-hari-ini"></p>
-        </div>
+            <div class="greeting-container">
+                <p class="greeting-text">Mau Makan apa hari ini?</p>
+            </div>
+        </section>
 
 
 
@@ -49,27 +62,12 @@
         <!-- Featured Section -->
         <section class="featured-section">
             <div class="container">
-                <div class="section-header">
-                    <p class="section-subtitle">Mau Makan apa hari ini?</p>
-                    <button class="calorie-button">
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
-                    <path d="M10 2a8 8 0 100 16 8 8 0 000-16zm0 14a6 6 0 110-12 6 6 0 010 12z"/>
-                </svg>
-                COUNTING CALORIES
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
-                    <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
-                </svg>
-            </button>
-                </div>
-
                 <div class="featured-grid">
                     <!-- Card 1: Warung Nasi Bu Yuyun -->
                     <div class="featured-card">
                         <div class="card-image-wrapper">
                             <div class="circle-bg"></div>
                             <img src="images/sarangburungbuyun.png" alt="Telur Sarang Burung" class="food-image">
-                            <div class="floating-icon icon-1">🍃</div>
-                            <div class="floating-icon icon-2">🌿</div>
                         </div>
                         <div class="card-content">
                             <p class="card-category">WARUNG NASI</p>
@@ -86,8 +84,6 @@
                         <div class="card-image-wrapper">
                             <div class="circle-bg"></div>
                             <img src="images/esshanghai.png" alt="Es Shanghai" class="food-image">
-                            <div class="floating-icon icon-1">🍊</div>
-                            <div class="floating-icon icon-2">🍓</div>
                         </div>
                         <div class="card-content">
                             <p class="card-category">MINUMAN SEGAR</p>
@@ -104,8 +100,6 @@
                         <div class="card-image-wrapper">
                             <div class="circle-bg"></div>
                             <img src="images/ayambakar.png" alt="Ayam Bakar" class="food-image">
-                            <div class="floating-icon icon-1">🔥</div>
-                            <div class="floating-icon icon-2">🌶️</div>
                         </div>
                         <div class="card-content">
                             <p class="card-category">AYAM & BAKARAN</p>
@@ -256,54 +250,7 @@
             <p>&copy; 2025 Telkom Food Hub. All rights reserved.</p>
         </div>
     </footer>
-
-    <script>
-        // --- SCRIPT UNTUK TANGGAL REAL-TIME ---
-        const options = {
-            weekday: 'long',
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric',
-            timeZone: 'Asia/Jakarta'
-        };
-        const tanggalSekarang = new Date();
-        const tanggalIndonesia = tanggalSekarang.toLocaleDateString('id-ID', options);
-        if (document.getElementById('tanggal-hari-ini')) {
-            document.getElementById('tanggal-hari-ini').textContent = tanggalIndonesia;
-        }
-
-
-        // --- SCRIPT UNTUK JAM ANALOG REAL-TIME (VERSI CLIENT-SIDE UTC OFFSET) ---
-        const hourHand = document.querySelector('.hour-hand');
-        const minuteHand = document.querySelector('.minute-hand');
-        const secondHand = document.querySelector('.second-hand');
-
-        function setClock() {
-            const now = new Date();
-
-            // Ambil waktu UTC dan tambahkan 7 jam untuk WIB
-            const utc_hours = now.getUTCHours();
-            const wib_hours = (utc_hours + 7) % 24; // Modulo 24 untuk handle tengah malam
-            const minutes = now.getUTCMinutes();
-            const seconds = now.getUTCSeconds();
-
-            // Hitung derajat perputaran untuk setiap jarum
-            const secondsDegrees = ((seconds / 60) * 360);
-            const minutesDegrees = ((minutes / 60) * 360) + ((seconds / 60) * 6) + 266;
-            const hoursDegrees = ((wib_hours / 12) * 360) + ((minutes / 60) * 30) + 250;
-
-            // Terapkan rotasi ke elemen jarum jam
-            if (secondHand) secondHand.style.transform = `rotate(${secondsDegrees}deg)`;
-            if (minuteHand) minuteHand.style.transform = `rotate(${minutesDegrees}deg)`;
-            if (hourHand) hourHand.style.transform = `rotate(${hoursDegrees}deg)`;
-        }
-
-        // Jalankan fungsi setClock setiap 1 detik
-        setInterval(setClock, 1000);
-
-        // Panggil sekali di awal untuk tampilan instan
-        setClock();
-    </script>
+    <script src="js/main.js" defer></script>
 
 </body>
 

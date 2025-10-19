@@ -1,7 +1,7 @@
 /* --------------------------------------------------- */
 
 
-/* Telkom Food Hub - style.css (Versi Rapi & Terstruktur) */
+/* Telkom Food Hub - style.css (Versi Responsif)       */
 
 
 /* --------------------------------------------------- */
@@ -23,11 +23,25 @@
     --warna-putih-gading: #FAFAFA;
     --warna-putih-murni: #FFFFFF;
     --warna-biru-sekunder: #4A90E2;
-    --warna-hijau-sukses: #48BB78;
     /* Bayangan (Shadow) */
     --shadow-kecil: 0 2px 4px rgba(0, 0, 0, 0.05);
     --shadow-medium: 0 4px 12px rgba(0, 0, 0, 0.1);
     --shadow-besar: 0 10px 25px rgba(0, 0, 0, 0.15);
+    /* Ukuran Font */
+    --font-size-xs: 0.75rem;
+    /* 12px */
+    --font-size-sm: 0.875rem;
+    /* 14px */
+    --font-size-base: 1rem;
+    /* 16px */
+    --font-size-lg: 1.125rem;
+    /* 18px */
+    --font-size-xl: 1.25rem;
+    /* 20px */
+    --font-size-2xl: 1.5rem;
+    /* 24px */
+    --font-size-3xl: 1.875rem;
+    /* 30px */
 }
 
 
@@ -43,6 +57,8 @@
 
 html {
     scroll-behavior: smooth;
+    font-size: 15px;
+    /* <-- Standar Emas untuk `rem` */
 }
 
 body {
@@ -69,35 +85,36 @@ a {
 }
 
 section {
-    padding: 60px 0;
+    padding: 3rem 0;
 }
 
 .section-title {
     text-align: center;
     font-family: var(--font-judul);
-    font-size: 2.25rem;
-    /* Ukuran font judul section yang konsisten */
-    margin-bottom: 1rem;
+    font-size: var(--font-size-3xl);
+    margin-bottom: 3rem;
     color: var(--warna-teks-utama);
 }
 
 .section-subtitle {
     text-align: center;
-    max-width: 900px;
-    margin: 0 auto 40px auto;
+    max-width: 1000px;
+    margin: 0 auto 2rem auto;
     color: var(--warna-teks-sekunder);
+    font-size: var(--font-size-lg);
 }
 
 
 /* -- 3. HEADER & NAVIGASI -- */
 
 header {
-    background-color: var(--warna-putih-murni);
-    padding: 5px 0;
-    box-shadow: var(--shadow-kecil);
+    width: 100%;
+    background: var(--warna-putih-murni);
+    padding: 1rem 0;
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 1000;
+    box-shadow: var(--shadow-kecil);
 }
 
 header .container {
@@ -106,21 +123,52 @@ header .container {
     align-items: center;
 }
 
-header .logo {
+.logo {
     font-family: var(--font-judul);
     font-weight: 800;
     font-size: 1.5rem;
     color: var(--warna-merah-telkom);
+    z-index: 1001;
 }
 
-header nav a {
-    margin-left: 20px;
+nav {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-link {
+    font-size: var(--font-size-base);
     font-weight: 500;
+    color: var(--warna-teks-utama);
     transition: color 0.3s ease;
 }
 
-header nav a:hover {
+.nav-link:hover {
     color: var(--warna-merah-telkom);
+}
+
+#hamburger-btn {
+    display: none;
+    /* Sembunyikan di desktop */
+    flex-direction: column;
+    justify-content: space-around;
+    width: 2rem;
+    height: 2rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+}
+
+#hamburger-btn span {
+    width: 2rem;
+    height: 0.25rem;
+    background: var(--warna-teks-utama);
+    border-radius: 10px;
+    transition: all 0.3s linear;
+    position: relative;
+    transform-origin: 1px;
 }
 
 
@@ -129,48 +177,65 @@ header nav a:hover {
 #hero-main {
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://placehold.co/1920x600/E60012/FFFFFF?text=Hero+Image+Makanan') no-repeat center center/cover;
     color: var(--warna-putih-murni);
-    padding: 150px 0;
+    padding: 80px 0;
     text-align: center;
 }
 
 #hero-main h1 {
-    font-size: 3rem;
+    font-size: 2.8rem;
     font-weight: 800;
 }
 
 #hero-main p {
-    font-size: 1.25rem;
+    font-size: var(--font-size-lg);
     max-width: 600px;
     margin: 10px auto 0 auto;
 }
 
-.date-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-    padding: 40px 0;
-    background-color: var(--warna-putih-gading);
-    border-top: 1px solid var(--warna-abu-netral);
+.time-greeting-section {
+    padding: 2.5rem 1rem;
+    background: var(--warna-putih-murni);
     border-bottom: 1px solid var(--warna-abu-netral);
 }
 
+.date-container,
+.greeting-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.greeting-container {
+    margin-top: 1.5rem;
+}
+
 #tanggal-hari-ini {
-    font-weight: 500;
-    color: var(--warna-teks-utama);
-    font-size: 1.1em;
+    font-family: var(--font-hias);
+    font-weight: 400;
+    color: var(--warna-teks-sekunder);
+    font-size: var(--font-size-2xl);
     margin: 0;
-    animation: tracking-in-expand 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+}
+
+.greeting-text {
+    font-family: var(--font-hias);
+    font-size: var(--font-size-3xl);
+    color: var(--warna-teks-utama);
 }
 
 
 /* -- 5. FEATURED CARDS (MAU MAKAN APA HARI INI?) -- */
 
+.featured-section {
+    padding: 3rem 0;
+}
+
 .featured-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2.5rem;
-    margin-top: 3rem;
 }
 
 .featured-card {
@@ -179,8 +244,6 @@ header nav a:hover {
     overflow: hidden;
     box-shadow: var(--shadow-medium);
     transition: all 0.4s ease;
-    animation: fadeInUp 0.8s ease-out;
-    animation-fill-mode: both;
 }
 
 .featured-card:hover {
@@ -191,22 +254,12 @@ header nav a:hover {
 .card-image-wrapper {
     position: relative;
     height: 250px;
-    /* Menyesuaikan tinggi gambar */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1rem;
-    background: var(--warna-putih-gading);
 }
 
 .food-image {
-    position: relative;
-    z-index: 2;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 12px;
-    /* Membuat gambar kotak dengan sudut tumpul */
     transition: transform 0.5s ease;
 }
 
@@ -220,7 +273,7 @@ header nav a:hover {
 }
 
 .card-category {
-    font-size: 0.9rem;
+    font-size: var(--font-size-xs);
     color: var(--warna-teks-sekunder);
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -229,27 +282,25 @@ header nav a:hover {
 
 .card-title {
     font-family: var(--font-hias);
-    font-size: 2rem;
-    /* Ukuran font nama warung */
+    font-size: var(--font-size-2xl);
     color: var(--warna-merah-telkom);
     margin-bottom: 1rem;
 }
 
 .card-description {
     color: var(--warna-teks-sekunder);
-    font-size: 1rem;
-    line-height: 1.7;
+    font-size: var(--font-size-sm);
+    line-height: 1.5;
     margin-bottom: 1.5rem;
 }
 
 .visit-button {
     background: var(--warna-merah-telkom);
     color: var(--warna-putih-murni);
-    padding: 0.8rem 2rem;
+    padding: 0.75rem 1.5rem;
     border-radius: 50px;
-    text-decoration: none;
     font-weight: 700;
-    font-size: 1rem;
+    font-size: var(--font-size-sm);
     display: inline-block;
     transition: all 0.3s ease;
     box-shadow: var(--shadow-kecil);
@@ -271,7 +322,7 @@ header nav a:hover {
 .steps-container {
     display: flex;
     justify-content: space-around;
-    gap: 30px;
+    gap: 2rem;
     text-align: center;
     flex-wrap: wrap;
 }
@@ -281,9 +332,9 @@ header nav a:hover {
 }
 
 .step-icon-frame {
-    width: 200px;
-    height: 200px;
-    margin: 0 auto 30px auto;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 1.5rem auto;
     background-color: var(--warna-abu-netral);
     border-radius: 50%;
     overflow: hidden;
@@ -298,7 +349,9 @@ header nav a:hover {
 }
 
 .step-item h3 {
-    margin-bottom: 10px;
+    font-family: var(--font-judul);
+    font-size: var(--font-size-lg);
+    margin-bottom: 0.5rem;
 }
 
 
@@ -307,8 +360,8 @@ header nav a:hover {
 #mitra-slider {
     background-color: var(--warna-teks-utama);
     color: var(--warna-putih-gading);
-    padding: 80px 0;
-    overflow: hidden;
+    padding: 4rem 0;
+    overflow-x: hidden;
 }
 
 #mitra-slider .section-title {
@@ -316,15 +369,15 @@ header nav a:hover {
 }
 
 .slider {
-    width: 100%;
     position: relative;
-    display: grid;
-    place-items: center;
+    width: 100%;
+    white-space: nowrap;
 }
 
 .slider-track {
     display: flex;
-    width: calc(300px * 14);
+    width: calc(280px * 14);
+    /* (Lebar Slide + Padding) * Jumlah Slide */
     animation: scroll 40s linear infinite;
 }
 
@@ -333,9 +386,9 @@ header nav a:hover {
 }
 
 .slide {
-    width: 300px;
-    height: 400px;
-    padding: 0 15px;
+    width: 250px;
+    height: 350px;
+    margin: 0 15px;
 }
 
 .slide img {
@@ -347,36 +400,40 @@ header nav a:hover {
 
 #mitra-slider .quote {
     text-align: center;
-    margin-top: 40px;
+    margin-top: 3rem;
     font-style: italic;
-    font-size: 1.1rem;
+    font-size: var(--font-size-lg);
     max-width: 700px;
     margin-left: auto;
     margin-right: auto;
     color: var(--warna-putih-gading);
-    /* Warna quote di slider */
 }
 
 
 /* -- 8. BAGIAN TENTANG KAMI (OUR MISSION) -- */
 
+#our-mission {
+    padding: 4rem 0;
+}
+
 .profile-card {
     display: flex;
     align-items: center;
-    gap: 50px;
+    gap: 2rem;
     background-color: var(--warna-putih-murni);
-    padding: 40px;
+    padding: 2.5rem;
     border-radius: 12px;
     box-shadow: var(--shadow-medium);
-    margin-bottom: 30px;
+    margin-bottom: 2rem;
 }
 
 .profile-image-wrapper {
     flex-shrink: 0;
-    width: 200px;
-    height: 200px;
-    border-radius: 8px;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
     overflow: hidden;
+    box-shadow: var(--shadow-besar);
 }
 
 .profile-image-wrapper img {
@@ -386,13 +443,15 @@ header nav a:hover {
 }
 
 .profile-details h4 {
+    font-family: var(--font-judul);
+    font-size: var(--font-size-2xl);
     margin-top: 0;
     color: var(--warna-merah-telkom);
 }
 
 .social-links {
     display: flex;
-    gap: 15px;
+    gap: 1rem;
     margin-top: 1rem;
 }
 
@@ -413,24 +472,30 @@ header nav a:hover {
     background-color: var(--warna-merah-telkom);
     color: var(--warna-putih-murni);
     text-align: center;
+    padding: 4rem 1rem;
 }
 
 #join-cta h2 {
+    font-family: var(--font-judul);
     font-size: 2.5rem;
     color: var(--warna-putih-murni);
 }
 
 #join-cta p {
-    margin: 10px 0 30px 0;
-    font-size: 1.1rem;
+    margin: 1rem 0 2rem 0;
+    font-size: var(--font-size-lg);
 }
 
-#join-cta .cta-button-large {
+.cta-button-large {
     background-color: var(--warna-putih-murni);
     color: var(--warna-merah-telkom);
+    padding: 1rem 2rem;
+    font-size: var(--font-size-lg);
+    border-radius: 50px;
+    transition: background-color 0.3s ease;
 }
 
-#join-cta .cta-button-large:hover {
+.cta-button-large:hover {
     background-color: var(--warna-abu-netral);
 }
 
@@ -441,24 +506,11 @@ footer {
     background-color: var(--warna-teks-utama);
     color: var(--warna-putih-gading);
     text-align: center;
-    padding: 20px 0;
+    padding: 1.5rem 0;
 }
 
 
 /* -- 11. ANIMASI -- */
-
-@keyframes tracking-in-expand {
-    0% {
-        letter-spacing: -0.5em;
-        opacity: 0;
-    }
-    40% {
-        opacity: 0.6;
-    }
-    100% {
-        opacity: 1;
-    }
-}
 
 @keyframes fadeInUp {
     0% {
@@ -476,39 +528,77 @@ footer {
         transform: translateX(0);
     }
     100% {
-        transform: translateX(calc(-300px * 7));
+        transform: translateX(calc(-280px * 7));
     }
 }
 
 
 /* -- 12. ATURAN RESPONSIVE -- */
 
-@media (max-width: 992px) {
-    .featured-grid {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 2rem;
-    }
-}
 
-@media (max-width: 768px) {
-    .section-title {
-        font-size: 1.8rem;
-    }
-    #hero-main {
-        padding: 100px 0;
-    }
-    #hero-main h1 {
-        font-size: 2.5rem;
+/* Breakpoint untuk Tablet & di bawahnya */
+
+@media (max-width: 992px) {
+    .container {
+        width: 95%;
     }
     .profile-card {
         flex-direction: column;
         text-align: center;
-        padding: 30px;
-    }
-    .profile-image-wrapper {
-        margin-bottom: 15px;
+        padding: 2rem;
     }
     .social-links {
         justify-content: center;
+    }
+}
+
+
+/* Breakpoint untuk Mobile */
+
+@media (max-width: 768px) {
+    html {
+        font-size: 15px;
+        /* Sedikit kecilkan base font di mobile */
+    }
+    #hamburger-btn {
+        display: flex;
+        /* Munculkan tombol hamburger di mobile */
+    }
+    nav {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        /* Sembunyikan di luar layar */
+        width: 70%;
+        height: 100vh;
+        background-color: var(--warna-putih-murni);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        transition: left 0.3s ease-in-out;
+        box-shadow: var(--shadow-besar);
+    }
+    nav.active {
+        left: 0;
+        /* Munculkan menu */
+    }
+    .nav-link {
+        font-size: var(--font-size-lg);
+    }
+    #hero-main {
+        padding: 60px 0;
+    }
+    #hero-main h1 {
+        font-size: 2.2rem;
+    }
+    #tanggal-hari-ini {
+        font-size: 1.5rem;
+    }
+    .greeting-text {
+        font-size: 1.8rem;
+    }
+    .featured-grid {
+        gap: 1.5rem;
     }
 }
