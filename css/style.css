@@ -57,7 +57,11 @@
 
 html {
     scroll-behavior: smooth;
+<<<<<<< HEAD
     font-size: 14px;
+=======
+    font-size: 16px;
+>>>>>>> 9702569e4e3fad65e3904fc344ab9ccb28a7a128
     /* <-- Standar Emas untuk `rem` */
 }
 
