@@ -12,7 +12,42 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body class="loading">
+
+    <div id="preloader">
+        <svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="60" cy="50" r="35" fill="#E60012" opacity="0.1"/>
+            <circle cx="60" cy="50" r="30" fill="#E60012"/>
+            <circle cx="50" cy="45" r="3" fill="#FFFFFF"/>
+            <circle cx="70" cy="45" r="3" fill="#FFFFFF"/>
+            <g id="mouth">
+                <path d="M 50 58 Q 60 62 70 58" stroke="#FFFFFF" stroke-width="2.5" fill="none" stroke-linecap="round">
+                    <animate attributeName="d" 
+                             values="M 50 58 Q 60 62 70 58;
+                                     M 50 58 Q 60 58 70 58;
+                                     M 50 58 Q 60 62 70 58" 
+                             dur="0.6s" 
+                             repeatCount="indefinite"/>
+                </path>
+            </g>
+            <g id="fork">
+                <rect x="85" y="35" width="2" height="25" fill="#6C757D" rx="1"/>
+                <rect x="82" y="32" width="1.5" height="5" fill="#6C757D" rx="0.5"/>
+                <rect x="85" y="32" width="1.5" height="5" fill="#6C757D" rx="0.5"/>
+                <rect x="88" y="32" width="1.5" height="5" fill="#6C757D" rx="0.5"/>
+                <circle cx="86" cy="28" r="4" fill="#FFC700"/>
+                <animateTransform attributeName="transform"
+                                  type="translate"
+                                  values="0,0; -20,-10; 0,0"
+                                  dur="1.8s"
+                                  repeatCount="indefinite"/>
+            </g>
+            <text x="60" y="100" font-family="Inter, sans-serif" font-size="12" fill="#2D2D2D" text-anchor="middle" font-weight="600">
+                Memuat menu...
+                <animate attributeName="opacity" values="1;0.3;1" dur="1.5s" repeatCount="indefinite"/>
+            </text>
+        </svg>
+    </div>
 
     <header>
         <div class="container">
@@ -39,16 +74,13 @@
             </div>
         </section>
 
-        <!-- WADAH UNTUK TANGGAL & JAM REAL-TIME -->
         <section class="time-greeting-section">
             <div class="date-container">
-                <!-- Jam Analog Real-time -->
                 <div class="analog-clock">
                     <div class="hand hour-hand"></div>
                     <div class="hand minute-hand"></div>
                     <div class="hand second-hand"></div>
                 </div>
-                <!-- Wadah untuk Tulisan Tanggal -->
                 <p id="tanggal-hari-ini"></p>
             </div>
             <div class="greeting-container">
@@ -56,14 +88,9 @@
             </div>
         </section>
 
-
-
-        <!-- Bagian Showcase UMKM -->
-        <!-- Featured Section -->
         <section class="featured-section">
             <div class="container">
                 <div class="featured-grid">
-                    <!-- Card 1: Warung Nasi Bu Yuyun -->
                     <div class="featured-card">
                         <div class="card-image-wrapper">
                             <div class="circle-bg"></div>
@@ -79,7 +106,6 @@
                         </div>
                     </div>
 
-                    <!-- Card 2: Outlet A Rio -->
                     <div class="featured-card">
                         <div class="card-image-wrapper">
                             <div class="circle-bg"></div>
@@ -95,11 +121,10 @@
                         </div>
                     </div>
 
-                    <!-- Card 3: Rajanya Ayam Bakar -->
                     <div class="featured-card">
                         <div class="card-image-wrapper">
                             <div class="circle-bg"></div>
-                            <img src="images/ayambakar.png" alt="Ayam Bakar" class="food-image">
+                            <img src="images/menuayambakar.png" alt="Ayam Bakar" class="food-image">
                         </div>
                         <div class="card-content">
                             <p class="card-category">AYAM & BAKARAN</p>
@@ -114,8 +139,6 @@
             </div>
         </section>
 
-
-        <!-- Bagian "Cara Pesan?" -->
         <section id="how-to-order">
             <div class="container">
                 <h2 class="section-title">Cara Pesan? Gampang Banget!</h2>
@@ -147,13 +170,11 @@
             </div>
         </section>
 
-        <!-- Bagian Slider Mitra UMKM -->
         <section id="mitra-slider">
             <div class="container">
                 <h2 class="section-title">Kisah di Balik Setiap Rasa</h2>
                 <div class="slider">
                     <div class="slider-track">
-                        <!-- Slide Asli -->
                         <div class="slide"><img src="images/ayambakaraira.jpg" alt="Mitra UMKM 1"></div>
                         <div class="slide"><img src="images/buyunblk.jpg" alt="Mitra UMKM 2"></div>
                         <div class="slide"><img src="images/outletario.jpg" alt="Mitra UMKM 3"></div>
@@ -161,7 +182,6 @@
                         <div class="slide"><img src="images/viewbuyun .jpg" alt="Mitra UMKM 5"></div>
                         <div class="slide"><img src="images/wwcrrio.jpg" alt="Mitra UMKM 6"></div>
                         <div class="slide"><img src="https://placehold.co/300x400/333/FFF?text=Mitra+7" alt="Mitra UMKM 7"></div>
-                        <!-- Slide Duplikat -->
                         <div class="slide"><img src="images/ayambakaraira.jpg" alt="Mitra UMKM 1"></div>
                         <div class="slide"><img src="images/buyunblk.jpg" alt="Mitra UMKM 2"></div>
                         <div class="slide"><img src="images/outletario.jpg" alt="Mitra UMKM 3"></div>
@@ -179,22 +199,17 @@
             <div class="container">
                 <h2 class="section-title">Dari Mahasiswa, Untuk Mahasiswa & UMKM</h2>
                 <p class="section-subtitle">Kami percaya pada kekuatan komunitas. Telkom Food Hub lahir dari semangat untuk menghubungkan mahasiswa dengan kekayaan kuliner lokal yang dikelola oleh para tetangga kita.</p>
-                <!-- Ganti isi dari <div class="mission-container"> dengan ini -->
 
-                <!-- Profil Card Zidane -->
                 <div class="profile-card">
-                    <!-- Kolom Kiri: Gambar -->
                     <div class="profile-image-wrapper">
                         <img src="images/zidanes.jpg" alt="Foto Zidane Surya Nugraha">
                     </div>
-                    <!-- Kolom Kanan: Detail Teks -->
                     <div class="profile-details">
                         <h4>Zidane Surya Nugraha</h4>
                         <p class="profile-role">Full-Stack Developer & UI/UX Enthusiast</p>
                         <p class="profile-bio">
                             Mahasiswa Teknik Komputer yang suka ngoprek teknologi web dari hulu ke hilir. Punya minat besar dalam membangun aplikasi yang fungsional sekaligus punya tampilan yang memanjakan mata.
                         </p>
-                        <!-- Ikon Social Media -->
                         <div class="social-links">
                             <a href="https://www.linkedin.com/in/zidane-surya-nugraha-55550333a/" target="_blank" title="LinkedIn"><img src="images/linkedin-icon.png" alt="LinkedIn"></a>
                             <a href="https://github.com/Zidanes-hub" target="_blank" title="GitHub"><img src="images/github-icon.png" alt="GitHub"></a>
@@ -203,20 +218,16 @@
                     </div>
                 </div>
 
-                <!-- Profil Card Rizki -->
                 <div class="profile-card">
-                    <!-- Kolom Kiri: Gambar -->
                     <div class="profile-image-wrapper">
                         <img src="images/rizki.jpg" alt="Foto Muhammad Rizki Ramdhani">
                     </div>
-                    <!-- Kolom Kanan: Detail Teks -->
                     <div class="profile-details">
                         <h4>Muhammad Rizki Ramdhani</h4>
                         <p class="profile-role">Full-Stack Developer & UI/UX Enthusiast</p>
                         <p class="profile-bio">
                             Mahasiswa Teknik Komputer yang suka ngoprek teknologi web dari hulu ke hilir. Punya minat besar dalam membangun aplikasi yang fungsional sekaligus punya tampilan yang memanjakan mata.
                         </p>
-                        <!-- Ikon Social Media -->
                         <div class="social-links">
                             <a href="https://www.linkedin.com/in/m-rizki-ramdhani-b48877247/?originalSubdomain=id" target="_blank" title="LinkedIn"><img src="images/linkedin-icon.png" alt="LinkedIn"></a>
                             <a href="https://github.com/Cipss14?fbclid=PAQ0xDSwNfILtleHRuA2FlbQIxMQABpzUSRIx2JocAV4SNGEaX_iO9_hPe8tJ5rdGAPWj4l6ZdsyybgXWXdhjn3fJJ_aem_4tuYCY19DmMl-t474S6qOg" target="_blank" title="GitHub"><img src="images/github-icon.png" alt="GitHub"></a>
@@ -224,6 +235,7 @@
                         </div>
                     </div>
                 </div>
+            </div>
         </section>
 
         <section id="join-cta">
@@ -234,7 +246,6 @@
             </div>
         </section>
 
-        <!-- Bagian Kritik & Saran -->
         <section id="feedback">
             <div class="container">
                 <h2 class="section-title">Punya Kritik atau Saran?</h2>
@@ -250,6 +261,7 @@
             <p>&copy; 2025 Telkom Food Hub. All rights reserved.</p>
         </div>
     </footer>
+
     <script src="js/main.js" defer></script>
 
 </body>
