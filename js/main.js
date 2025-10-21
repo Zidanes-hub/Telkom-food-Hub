@@ -68,6 +68,71 @@ document.addEventListener('DOMContentLoaded', function() {
         const tanggalIndonesia = tanggalSekarang.toLocaleDateString('id-ID', options);
         tanggalElement.textContent = tanggalIndonesia;
     }
+// === LOGIN MODAL ===
+const loginBtn = document.getElementById("login-btn");
+const modal = document.getElementById("login-modal");
+const closeBtn = document.querySelector(".close-btn");
+
+loginBtn.addEventListener("click", () => {
+  modal.style.display = "flex";
+});
+
+closeBtn.addEventListener("click", () => {
+  modal.style.display = "none";
+});
+
+window.addEventListener("click", (e) => {
+  if (e.target === modal) {
+    modal.style.display = "none";
+  }
+});
+
+// Simulasi login sederhana
+document.getElementById("login-form").addEventListener("submit", (e) => {
+  e.preventDefault();
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+
+  if (email === "admin@telkomfoodhub.com" && password === "12345") {
+    alert("Login berhasil! Selamat datang kembali 😊");
+    modal.style.display = "none";
+  } else {
+    alert("Email atau kata sandi salah. Coba lagi.");
+  }
+  // === LOGIN POPUP INTERAKTIF ===
+const loginBtn = document.getElementById('login-btn');
+const loginModal = document.getElementById('login-modal');
+const closeLogin = document.getElementById('close-login');
+
+loginBtn.addEventListener('click', () => {
+  loginModal.classList.add('active');
+  document.body.style.overflow = 'hidden'; // stop scroll saat popup aktif
+});
+
+closeLogin.addEventListener('click', () => {
+  loginModal.classList.remove('active');
+  document.body.style.overflow = 'auto';
+});
+
+// Tutup popup jika klik area luar modal
+loginModal.addEventListener('click', (e) => {
+  if (e.target === loginModal) {
+    loginModal.classList.remove('active');
+    document.body.style.overflow = 'auto';
+  }
+});
+
+// Simulasi login sukses
+document.getElementById('login-form').addEventListener('submit', (e) => {
+  e.preventDefault();
+  alert('Login berhasil! Selamat datang kembali 😊');
+  loginModal.classList.remove('active');
+  document.body.style.overflow = 'auto';
+});
+
+const userName = localStorage.getItem("userName");
+
+});
 
     // ============================================
     // --- SCRIPT UNTUK JAM ANALOG REAL-TIME ---
